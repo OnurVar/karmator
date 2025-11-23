@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import html2canvas from 'html2canvas'
 import './PairShuffle.css'
 
 interface ShuffleResult {
@@ -15,6 +16,7 @@ function PairShuffle() {
   const [animationResults, setAnimationResults] = useState<ShuffleResult | null>(null)
   const [bulkExpanded, setBulkExpanded] = useState(false)
   const [bulkText, setBulkText] = useState('')
+  const resultRef = useRef<HTMLDivElement>(null)
 
   const handlePairChange = (index: number, value: string) => {
     const newPairs = [...pairs]
@@ -106,6 +108,23 @@ function PairShuffle() {
     }
   }
 
+  const saveScreenshot = async () => {
+    if (!resultRef.current || !result) return
+
+    try {
+      const canvas = await html2canvas(resultRef.current, {
+        backgroundColor: null,
+        scale: 2,
+      })
+      const link = document.createElement('a')
+      link.download = 'karmator-sonuc.png'
+      link.href = canvas.toDataURL('image/png')
+      link.click()
+    } catch (error) {
+      console.error('Screenshot failed:', error)
+    }
+  }
+
   const displayResult = animationResults || result
   const validPairCount = parsePairs().length
 
@@ -113,7 +132,7 @@ function PairShuffle() {
     <div className="pair-shuffle">
       {/* Results Section */}
       <div className="pair-shuffle-results">
-        <div className={`result-section ${isShuffling ? 'shuffling' : ''}`}>
+        <div ref={resultRef} className={`result-section ${isShuffling ? 'shuffling' : ''}`}>
           <div className="teams-container">
             <div className="team">
               <h3>Takım A</h3>
@@ -145,6 +164,11 @@ function PairShuffle() {
             <p className="result-placeholder-text">Karıştırmak için butona tıklayın</p>
           )}
         </div>
+        {result && !isShuffling && (
+          <button className="screenshot-btn" onClick={saveScreenshot}>
+            📷 Kaydet
+          </button>
+        )}
       </div>
 
       {/* Action Buttons */}

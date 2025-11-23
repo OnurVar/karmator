@@ -73,6 +73,25 @@
   padding: 1rem;
 }
 
+.screenshot-btn {
+  display: block;
+  width: 100%;
+  margin-top: 0.75rem;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.screenshot-btn:hover {
+  background-color: #e0e0e0;
+}
+
 .pairs-input-section {
   display: flex;
   flex-direction: column;
@@ -428,6 +447,15 @@
 
   .result-placeholder-text {
     color: #666;
+  }
+
+  .screenshot-btn {
+    background-color: #2a2a2a;
+    color: #ffffff;
+  }
+
+  .screenshot-btn:hover {
+    background-color: #3a3a3a;
   }
 }
 
