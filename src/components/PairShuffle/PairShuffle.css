@@ -2,42 +2,51 @@
   width: 100%;
 }
 
-.pair-shuffle-left {
+/* Mobile layout: Results → Buttons → Inputs (top to bottom) */
+.pair-shuffle-results {
   width: 100%;
+  margin-bottom: 1rem;
 }
 
-.pair-shuffle-right {
+.pair-shuffle-actions {
   width: 100%;
+  margin-bottom: 1.5rem;
 }
 
-/* Mobile: hide right column until results exist */
-.pair-shuffle-right {
-  display: none;
-}
-
-.pair-shuffle-right:has(.team-list) {
-  display: block;
+.pair-shuffle-inputs {
+  width: 100%;
 }
 
 /* Desktop two-column layout */
 @media (min-width: 768px) {
   .pair-shuffle {
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem 2rem;
+    align-items: start;
   }
 
-  .pair-shuffle-left {
-    flex: 1;
-    min-width: 0;
+  /* Left column: Inputs */
+  .pair-shuffle-inputs {
+    grid-column: 1;
+    grid-row: 1 / 3;
   }
 
-  .pair-shuffle-right {
-    display: block;
-    flex: 1;
-    min-width: 0;
+  /* Right column: Results (sticky) */
+  .pair-shuffle-results {
+    grid-column: 2;
+    grid-row: 1;
     position: sticky;
     top: 1rem;
+    margin-bottom: 0;
+  }
+
+  /* Right column: Buttons below results */
+  .pair-shuffle-actions {
+    grid-column: 2;
+    grid-row: 2;
+    margin-bottom: 0;
   }
 
   .pair-shuffle .result-section {
@@ -163,7 +172,6 @@
 .button-group {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1.5rem;
 }
 
 .shuffle-btn {

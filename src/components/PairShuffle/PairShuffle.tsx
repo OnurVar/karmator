@@ -111,84 +111,8 @@ function PairShuffle() {
 
   return (
     <div className="pair-shuffle">
-      <div className="pair-shuffle-left">
-        <div className="pairs-input-section">
-          {pairs.map((pair, index) => (
-            <div key={index} className="pair-row">
-              <span className="pair-number">{index + 1}.</span>
-              <input
-                type="text"
-                value={pair}
-                onChange={(e) => handlePairChange(index, e.target.value)}
-                placeholder="İsim1-İsim2"
-                className="pair-input"
-                disabled={isShuffling}
-              />
-              <button
-                className="remove-btn"
-                onClick={() => removePair(index)}
-                disabled={pairs.length <= 1 || isShuffling}
-                aria-label="Çifti kaldır"
-              >
-                ✕
-              </button>
-            </div>
-          ))}
-
-          <button className="add-btn" onClick={addPair} disabled={isShuffling}>
-            + Ekle
-          </button>
-        </div>
-
-        <div className="button-group">
-          <button
-            className="primary shuffle-btn"
-            onClick={shuffle}
-            disabled={validPairCount === 0 || isShuffling}
-          >
-            {isShuffling ? '🎲 Karıştırılıyor...' : '🎲 Karıştır'}
-          </button>
-          <button
-            className="secondary"
-            onClick={reset}
-            disabled={isShuffling}
-          >
-            Sıfırla
-          </button>
-        </div>
-
-        <div className="bulk-paste-section">
-          <button
-            className="bulk-paste-header"
-            onClick={() => setBulkExpanded(!bulkExpanded)}
-            disabled={isShuffling}
-          >
-            <span className={`bulk-paste-arrow ${bulkExpanded ? 'expanded' : ''}`}>▶</span>
-            Toplu Yapıştır
-          </button>
-
-          {bulkExpanded && (
-            <div className="bulk-paste-content">
-              <textarea
-                value={bulkText}
-                onChange={(e) => setBulkText(e.target.value)}
-                placeholder="Her satıra bir çift yazın:&#10;Ali-Veli&#10;Can-Deniz&#10;Ayşe-Fatma"
-                rows={6}
-                disabled={isShuffling}
-              />
-              <button
-                className="primary bulk-apply-btn"
-                onClick={applyBulkPaste}
-                disabled={bulkText.trim().length === 0 || isShuffling}
-              >
-                Uygula
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className="pair-shuffle-right">
+      {/* Results Section */}
+      <div className="pair-shuffle-results">
         <div className={`result-section ${isShuffling ? 'shuffling' : ''}`}>
           <div className="teams-container">
             <div className="team">
@@ -219,6 +143,87 @@ function PairShuffle() {
           </div>
           {!displayResult && (
             <p className="result-placeholder-text">Karıştırmak için butona tıklayın</p>
+          )}
+        </div>
+      </div>
+
+      {/* Action Buttons */}
+      <div className="pair-shuffle-actions">
+        <div className="button-group">
+          <button
+            className="primary shuffle-btn"
+            onClick={shuffle}
+            disabled={validPairCount === 0 || isShuffling}
+          >
+            {isShuffling ? '🎲 Karıştırılıyor...' : '🎲 Karıştır'}
+          </button>
+          <button
+            className="secondary"
+            onClick={reset}
+            disabled={isShuffling}
+          >
+            Sıfırla
+          </button>
+        </div>
+      </div>
+
+      {/* Inputs Section */}
+      <div className="pair-shuffle-inputs">
+        <div className="pairs-input-section">
+          {pairs.map((pair, index) => (
+            <div key={index} className="pair-row">
+              <span className="pair-number">{index + 1}.</span>
+              <input
+                type="text"
+                value={pair}
+                onChange={(e) => handlePairChange(index, e.target.value)}
+                placeholder="İsim1-İsim2"
+                className="pair-input"
+                disabled={isShuffling}
+              />
+              <button
+                className="remove-btn"
+                onClick={() => removePair(index)}
+                disabled={pairs.length <= 1 || isShuffling}
+                aria-label="Çifti kaldır"
+              >
+                ✕
+              </button>
+            </div>
+          ))}
+
+          <button className="add-btn" onClick={addPair} disabled={isShuffling}>
+            + Ekle
+          </button>
+        </div>
+
+        <div className="bulk-paste-section">
+          <button
+            className="bulk-paste-header"
+            onClick={() => setBulkExpanded(!bulkExpanded)}
+            disabled={isShuffling}
+          >
+            <span className={`bulk-paste-arrow ${bulkExpanded ? 'expanded' : ''}`}>▶</span>
+            Toplu Yapıştır
+          </button>
+
+          {bulkExpanded && (
+            <div className="bulk-paste-content">
+              <textarea
+                value={bulkText}
+                onChange={(e) => setBulkText(e.target.value)}
+                placeholder="Her satıra bir çift yazın:&#10;Ali-Veli&#10;Can-Deniz&#10;Ayşe-Fatma"
+                rows={6}
+                disabled={isShuffling}
+              />
+              <button
+                className="primary bulk-apply-btn"
+                onClick={applyBulkPaste}
+                disabled={bulkText.trim().length === 0 || isShuffling}
+              >
+                Uygula
+              </button>
+            </div>
           )}
         </div>
       </div>
