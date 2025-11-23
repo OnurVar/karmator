@@ -5,13 +5,8 @@
 /* Mobile layout: Results → Buttons → Inputs (top to bottom) */
 .pair-shuffle-results {
   width: 100%;
-  margin-bottom: 1rem;
 }
 
-.pair-shuffle-actions {
-  width: 100%;
-  margin-bottom: 1.5rem;
-}
 
 .pair-shuffle-inputs {
   width: 100%;
@@ -22,7 +17,6 @@
   .pair-shuffle {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
     gap: 1.5rem 2rem;
     align-items: start;
   }
@@ -30,23 +24,15 @@
   /* Left column: Inputs */
   .pair-shuffle-inputs {
     grid-column: 1;
-    grid-row: 1 / 3;
+    grid-row: 1;
   }
 
-  /* Right column: Results (sticky) */
+  /* Right column: Results + Buttons (sticky) */
   .pair-shuffle-results {
     grid-column: 2;
     grid-row: 1;
     position: sticky;
     top: 1rem;
-    margin-bottom: 0;
-  }
-
-  /* Right column: Buttons below results */
-  .pair-shuffle-actions {
-    grid-column: 2;
-    grid-row: 2;
-    margin-bottom: 0;
   }
 
   .pair-shuffle .result-section {
@@ -77,6 +63,7 @@
   display: block;
   width: 100%;
   margin-top: 0.75rem;
+  margin-bottom: 1rem;
   padding: 0.6rem 1rem;
   font-size: 0.9rem;
   font-weight: 500;
@@ -191,6 +178,7 @@
 .button-group {
   display: flex;
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 .shuffle-btn {

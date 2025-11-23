@@ -94,11 +94,32 @@ function PairShuffle() {
     setAnimationResults(null)
   }
 
+  const capitalizeFirst = (str: string) => {
+    const trimmed = str.trim()
+    if (trimmed.length === 0) return ''
+    return trimmed.charAt(0).toLocaleUpperCase('tr-TR') + trimmed.slice(1)
+  }
+
+  const normalizePairLine = (line: string) => {
+    // Split by hyphen (with optional spaces around it)
+    const parts = line.split(/\s*-\s*/)
+    if (parts.length >= 2) {
+      const name1 = capitalizeFirst(parts[0])
+      const name2 = capitalizeFirst(parts[1])
+      if (name1 && name2) {
+        return `${name1} - ${name2}`
+      }
+    }
+    // Return original if can't parse
+    return line.trim()
+  }
+
   const applyBulkPaste = () => {
     const lines = bulkText
       .split('\n')
       .map(line => line.trim())
       .filter(line => line.length > 0)
+      .map(normalizePairLine)
 
     if (lines.length > 0) {
       setPairs(lines)
@@ -116,10 +137,23 @@ function PairShuffle() {
         backgroundColor: null,
         scale: 2,
       })
-      const link = document.createElement('a')
-      link.download = 'karmator-sonuc.png'
-      link.href = canvas.toDataURL('image/png')
-      link.click()
+
+      // Convert canvas to blob and copy to clipboard
+      canvas.toBlob(async (blob) => {
+        if (!blob) return
+        try {
+          await navigator.clipboard.write([
+            new ClipboardItem({ 'image/png': blob })
+          ])
+        } catch (clipboardError) {
+          // Fallback to download if clipboard fails
+          console.error('Clipboard failed, downloading instead:', clipboardError)
+          const link = document.createElement('a')
+          link.download = 'karmator-sonuc.png'
+          link.href = canvas.toDataURL('image/png')
+          link.click()
+        }
+      }, 'image/png')
     } catch (error) {
       console.error('Screenshot failed:', error)
     }
@@ -166,13 +200,11 @@ function PairShuffle() {
         </div>
         {result && !isShuffling && (
           <button className="screenshot-btn" onClick={saveScreenshot}>
-            📷 Kaydet
+            📋 Kopyala
           </button>
         )}
-      </div>
 
-      {/* Action Buttons */}
-      <div className="pair-shuffle-actions">
+        {/* Action Buttons */}
         <div className="button-group">
           <button
             className="primary shuffle-btn"
