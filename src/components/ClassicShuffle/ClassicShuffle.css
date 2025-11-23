@@ -1,20 +1,19 @@
-.pair-shuffle {
+.classic-shuffle {
   width: 100%;
 }
 
 /* Mobile layout: Results → Buttons → Inputs (top to bottom) */
-.pair-shuffle-results {
+.classic-shuffle-results {
   width: 100%;
 }
 
-
-.pair-shuffle-inputs {
+.classic-shuffle-inputs {
   width: 100%;
 }
 
 /* Desktop two-column layout */
 @media (min-width: 768px) {
-  .pair-shuffle {
+  .classic-shuffle {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem 2rem;
@@ -22,51 +21,51 @@
   }
 
   /* Left column: Inputs */
-  .pair-shuffle-inputs {
+  .classic-shuffle-inputs {
     grid-column: 1;
     grid-row: 1;
   }
 
   /* Right column: Results + Buttons (sticky) */
-  .pair-shuffle-results {
+  .classic-shuffle-results {
     grid-column: 2;
     grid-row: 1;
     position: sticky;
     top: 1rem;
   }
 
-  .pair-shuffle .result-section {
+  .classic-shuffle .result-section {
     margin-top: 0;
   }
 
-  .pair-shuffle .bulk-paste-section {
+  .classic-shuffle .bulk-paste-section {
     margin-top: 1.5rem;
     border-top: none;
     padding-top: 0;
   }
 }
 
-.pairs-input-section {
+.names-input-section {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   margin-bottom: 1.5rem;
 }
 
-.pair-row {
+.name-row {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-.pair-number {
+.name-number {
   font-size: 0.9rem;
   color: #666;
-  min-width: 1.5rem;
+  min-width: 1.75rem;
   text-align: right;
 }
 
-.pair-input {
+.name-input {
   flex: 1;
   padding: 0.75rem 1rem;
   border: 2px solid #e0e0e0;
@@ -78,17 +77,17 @@
   color: #1a1a1a;
 }
 
-.pair-input:focus {
+.name-input:focus {
   outline: none;
   border-color: #646cff;
 }
 
-.pair-input:disabled {
+.name-input:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-.pair-input::placeholder {
+.name-input::placeholder {
   color: #999;
 }
 
@@ -222,21 +221,21 @@
 
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
-  .pair-number {
+  .name-number {
     color: #a0a0a0;
   }
 
-  .pair-input {
+  .name-input {
     background-color: #2a2a2a;
     border-color: #404040;
     color: #ffffff;
   }
 
-  .pair-input:focus {
+  .name-input:focus {
     border-color: #646cff;
   }
 
-  .pair-input::placeholder {
+  .name-input::placeholder {
     color: #666;
   }
 
@@ -291,16 +290,16 @@
 
 /* Mobile adjustments */
 @media (max-width: 480px) {
-  .pair-row {
+  .name-row {
     gap: 0.5rem;
   }
 
-  .pair-number {
+  .name-number {
     font-size: 0.85rem;
-    min-width: 1.25rem;
+    min-width: 1.5rem;
   }
 
-  .pair-input {
+  .name-input {
     padding: 0.6rem 0.75rem;
     font-size: 0.95rem;
   }

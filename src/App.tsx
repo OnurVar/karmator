@@ -3,6 +3,7 @@ import "./App.css";
 import { useState } from "react";
 
 import PairShuffle from "./components/PairShuffle";
+import ClassicShuffle from "./components/ClassicShuffle";
 
 type TabType = "pair" | "classic";
 
@@ -41,7 +42,7 @@ function App() {
           </div>
         ) : (
           <div className="tab-panel">
-            <p>Klasik karıştırma modu (yakında)</p>
+            <ClassicShuffle />
           </div>
         )}
       </div>
