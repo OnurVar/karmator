@@ -1,0 +1,288 @@
+.pair-shuffle {
+  width: 100%;
+}
+
+.pairs-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.pair-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pair-number {
+  font-size: 0.9rem;
+  color: #666;
+  min-width: 1.5rem;
+  text-align: right;
+}
+
+.pair-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+.pair-input:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+.pair-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pair-input::placeholder {
+  color: #999;
+}
+
+.remove-btn {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  background-color: transparent;
+  color: #999;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.remove-btn:hover:not(:disabled) {
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+  color: #dc2626;
+}
+
+.remove-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.add-btn {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-btn:hover:not(:disabled) {
+  background-color: #e0e0e0;
+}
+
+.add-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.shuffle-btn {
+  min-height: 48px;
+}
+
+/* Results Section */
+.result-section {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: opacity 0.2s;
+}
+
+.result-section.shuffling {
+  opacity: 0.85;
+}
+
+.teams-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.team {
+  flex: 1;
+  min-width: 0;
+}
+
+.team h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #646cff;
+}
+
+.team-divider {
+  width: 1px;
+  background-color: #e0e0e0;
+  margin: 0 0.5rem;
+}
+
+.team-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.team-list li {
+  padding: 0.6rem 0.75rem;
+  background-color: #ffffff;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  text-align: center;
+  transition: transform 0.1s, background-color 0.1s;
+}
+
+.team-list li:last-child {
+  margin-bottom: 0;
+}
+
+.shuffling .team-list li {
+  animation: pulse 0.15s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    background-color: #ffffff;
+  }
+  to {
+    background-color: #e8e8ff;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .pair-number {
+    color: #a0a0a0;
+  }
+
+  .pair-input {
+    background-color: #2a2a2a;
+    border-color: #404040;
+    color: #ffffff;
+  }
+
+  .pair-input:focus {
+    border-color: #646cff;
+  }
+
+  .pair-input::placeholder {
+    color: #666;
+  }
+
+  .remove-btn {
+    color: #888;
+    border-color: #404040;
+  }
+
+  .remove-btn:hover:not(:disabled) {
+    background-color: #3f1f1f;
+    border-color: #7f1d1d;
+    color: #f87171;
+  }
+
+  .add-btn {
+    background-color: #2a2a2a;
+    color: #ffffff;
+  }
+
+  .add-btn:hover:not(:disabled) {
+    background-color: #3a3a3a;
+  }
+
+  .result-section {
+    background-color: #1a1a1a;
+  }
+
+  .team h3 {
+    color: #ffffff;
+  }
+
+  .team-divider {
+    background-color: #404040;
+  }
+
+  .team-list li {
+    background-color: #2a2a2a;
+    color: #ffffff;
+  }
+
+  .shuffling .team-list li {
+    animation: pulse-dark 0.15s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse-dark {
+    from {
+      background-color: #2a2a2a;
+    }
+    to {
+      background-color: #3a3a5a;
+    }
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .pair-row {
+    gap: 0.5rem;
+  }
+
+  .pair-number {
+    font-size: 0.85rem;
+    min-width: 1.25rem;
+  }
+
+  .pair-input {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .remove-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .teams-container {
+    gap: 0.75rem;
+  }
+
+  .team h3 {
+    font-size: 1rem;
+  }
+
+  .team-list li {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}

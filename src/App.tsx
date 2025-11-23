@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import PairShuffle from './components/PairShuffle'
 
 type TabType = 'pair' | 'classic'
 
@@ -9,7 +10,6 @@ function App() {
   return (
     <div className="container">
       <h1>Karmator</h1>
-      <p className="subtitle">Liste karıştırıcı</p>
 
       <div className="tabs">
         <div
@@ -33,7 +33,7 @@ function App() {
       <div className="tab-content">
         {activeTab === 'pair' ? (
           <div className="tab-panel">
-            <p>İkili karıştırma modu (yakında)</p>
+            <PairShuffle />
           </div>
         ) : (
           <div className="tab-panel">
