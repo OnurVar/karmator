@@ -1,20 +1,19 @@
-.pair-shuffle {
+.altin-gunu {
   width: 100%;
 }
 
 /* Mobile layout: Results → Buttons → Inputs (top to bottom) */
-.pair-shuffle-results {
+.altin-gunu-results {
   width: 100%;
 }
 
-
-.pair-shuffle-inputs {
+.altin-gunu-inputs {
   width: 100%;
 }
 
 /* Desktop two-column layout */
 @media (min-width: 768px) {
-  .pair-shuffle {
+  .altin-gunu {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem 2rem;
@@ -22,51 +21,51 @@
   }
 
   /* Left column: Inputs */
-  .pair-shuffle-inputs {
+  .altin-gunu-inputs {
     grid-column: 1;
     grid-row: 1;
   }
 
   /* Right column: Results + Buttons (sticky) */
-  .pair-shuffle-results {
+  .altin-gunu-results {
     grid-column: 2;
     grid-row: 1;
     position: sticky;
     top: 1rem;
   }
 
-  .pair-shuffle .result-section {
+  .altin-gunu .result-section {
     margin-top: 0;
   }
 
-  .pair-shuffle .bulk-paste-section {
+  .altin-gunu .bulk-paste-section {
     margin-top: 1.5rem;
     border-top: none;
     padding-top: 0;
   }
 }
 
-.pairs-input-section {
+.altin-gunu .names-input-section {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   margin-bottom: 1.5rem;
 }
 
-.pair-row {
+.altin-gunu .name-row {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-.pair-number {
+.altin-gunu .name-number {
   font-size: 0.9rem;
   color: #666;
   min-width: 1.75rem;
   text-align: right;
 }
 
-.pair-input {
+.altin-gunu .name-input {
   flex: 1;
   padding: 0.75rem 1rem;
   border: 2px solid #e0e0e0;
@@ -78,21 +77,21 @@
   color: #1a1a1a;
 }
 
-.pair-input:focus {
+.altin-gunu .name-input:focus {
   outline: none;
   border-color: #646cff;
 }
 
-.pair-input:disabled {
+.altin-gunu .name-input:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-.pair-input::placeholder {
+.altin-gunu .name-input::placeholder {
   color: #999;
 }
 
-.remove-btn {
+.altin-gunu .remove-btn {
   flex: 0 0 auto;
   width: 36px;
   height: 36px;
@@ -109,18 +108,18 @@
   transition: all 0.2s;
 }
 
-.remove-btn:hover:not(:disabled) {
+.altin-gunu .remove-btn:hover:not(:disabled) {
   background-color: #fee2e2;
   border-color: #fca5a5;
   color: #dc2626;
 }
 
-.remove-btn:disabled {
+.altin-gunu .remove-btn:disabled {
   opacity: 0.3;
   cursor: not-allowed;
 }
 
-.add-btn {
+.altin-gunu .add-btn {
   align-self: flex-start;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
@@ -133,23 +132,23 @@
   transition: all 0.2s;
 }
 
-.add-btn:hover:not(:disabled) {
+.altin-gunu .add-btn:hover:not(:disabled) {
   background-color: #e0e0e0;
 }
 
-.add-btn:disabled {
+.altin-gunu .add-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
 /* Bulk Paste Section */
-.bulk-paste-section {
+.altin-gunu .bulk-paste-section {
   margin-top: 2rem;
   border-top: 1px solid #e0e0e0;
   padding-top: 1rem;
 }
 
-.bulk-paste-header {
+.altin-gunu .bulk-paste-header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -165,33 +164,33 @@
   transition: all 0.2s;
 }
 
-.bulk-paste-header:hover:not(:disabled) {
+.altin-gunu .bulk-paste-header:hover:not(:disabled) {
   background-color: #f5f5f5;
   color: #333;
 }
 
-.bulk-paste-header:disabled {
+.altin-gunu .bulk-paste-header:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.bulk-paste-arrow {
+.altin-gunu .bulk-paste-arrow {
   font-size: 0.75rem;
   transition: transform 0.2s;
 }
 
-.bulk-paste-arrow.expanded {
+.altin-gunu .bulk-paste-arrow.expanded {
   transform: rotate(90deg);
 }
 
-.bulk-paste-content {
+.altin-gunu .bulk-paste-content {
   margin-top: 0.75rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.bulk-paste-content textarea {
+.altin-gunu .bulk-paste-content textarea {
   width: 100%;
   padding: 0.75rem 1rem;
   border: 2px solid #e0e0e0;
@@ -205,16 +204,16 @@
   color: #1a1a1a;
 }
 
-.bulk-paste-content textarea:focus {
+.altin-gunu .bulk-paste-content textarea:focus {
   outline: none;
   border-color: #646cff;
 }
 
-.bulk-paste-content textarea::placeholder {
+.altin-gunu .bulk-paste-content textarea::placeholder {
   color: #999;
 }
 
-.bulk-apply-btn {
+.altin-gunu .bulk-apply-btn {
   align-self: flex-end;
   flex: 0 0 auto;
   padding: 0.6rem 1.5rem;
@@ -222,90 +221,90 @@
 
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
-  .pair-number {
+  .altin-gunu .name-number {
     color: #a0a0a0;
   }
 
-  .pair-input {
+  .altin-gunu .name-input {
     background-color: #2a2a2a;
     border-color: #404040;
     color: #ffffff;
   }
 
-  .pair-input:focus {
+  .altin-gunu .name-input:focus {
     border-color: #646cff;
   }
 
-  .pair-input::placeholder {
+  .altin-gunu .name-input::placeholder {
     color: #666;
   }
 
-  .remove-btn {
+  .altin-gunu .remove-btn {
     color: #888;
     border-color: #404040;
   }
 
-  .remove-btn:hover:not(:disabled) {
+  .altin-gunu .remove-btn:hover:not(:disabled) {
     background-color: #3f1f1f;
     border-color: #7f1d1d;
     color: #f87171;
   }
 
-  .add-btn {
+  .altin-gunu .add-btn {
     background-color: #2a2a2a;
     color: #ffffff;
   }
 
-  .add-btn:hover:not(:disabled) {
+  .altin-gunu .add-btn:hover:not(:disabled) {
     background-color: #3a3a3a;
   }
 
-  .bulk-paste-section {
+  .altin-gunu .bulk-paste-section {
     border-top-color: #404040;
   }
 
-  .bulk-paste-header {
+  .altin-gunu .bulk-paste-header {
     color: #a0a0a0;
     border-color: #404040;
   }
 
-  .bulk-paste-header:hover:not(:disabled) {
+  .altin-gunu .bulk-paste-header:hover:not(:disabled) {
     background-color: #2a2a2a;
     color: #ffffff;
   }
 
-  .bulk-paste-content textarea {
+  .altin-gunu .bulk-paste-content textarea {
     background-color: #2a2a2a;
     border-color: #404040;
     color: #ffffff;
   }
 
-  .bulk-paste-content textarea:focus {
+  .altin-gunu .bulk-paste-content textarea:focus {
     border-color: #646cff;
   }
 
-  .bulk-paste-content textarea::placeholder {
+  .altin-gunu .bulk-paste-content textarea::placeholder {
     color: #666;
   }
 }
 
 /* Mobile adjustments */
 @media (max-width: 480px) {
-  .pair-row {
+  .altin-gunu .name-row {
     gap: 0.5rem;
   }
 
-  .pair-number {
+  .altin-gunu .name-number {
     font-size: 0.85rem;
     min-width: 1.5rem;
   }
 
-  .pair-input {
+  .altin-gunu .name-input {
     padding: 0.6rem 0.75rem;
     font-size: 0.95rem;
   }
 
-  .remove-btn {
+  .altin-gunu .remove-btn {
     width: 32px;
     height: 32px;
     font-size: 0.9rem;
